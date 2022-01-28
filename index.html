@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="nav-bar"></div>
+    <div id="app">
+        <div class="product">
+            <div class="product-image">
+                <img :src="image" :alt="description" />
+            </div>
+            <div class="product-info">
+                <h1>{{ product }}</h1>
+                <p v-if="inventory > 10">In Stock</p>
+                <p v-else-if="inventory <= 10 &&inventory > 0">Almost sold out!</p>
+                <p v-else>Out of Stock</p>
+                <span v-show="onSale">On Sale!!</span>
+                <ul>
+                    <li v-for="detail in details">{{ detail }}</li>
+                </ul>
+                <div v-for="variant in variants" :key="variant.id">
+                    <p @mouseover="updateProduct(variant.image)">{{ variant.color }}</p>
+                </div>
+                <ul>
+                    <li v-for="x in sizes">{{ x }}</li>
+                </ul>
+
+                <button v-on:click="addToCart">Add to cart</button>
+                <button @click="removeFromCart">Remove</button>
+
+                <div class="cart">
+                    <p>Cart({{cart}})</p>
+                </div>
+            </div>
+        </div>
+        <a :href="link" target="_blank">Take me to Vue website!</a>
+        <p>{{ description }}</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> --> 
+    <script src=main.js></script>
+</body>
+</html>
