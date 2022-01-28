@@ -3,7 +3,7 @@ var app = new Vue({
     data:{
         product:'Boots',
         description:'These are my cowboy boots',
-        image:'./brownBoots.jpeg',
+        image:'./assets/brownBoots.jpeg',
         link: "https://v3.vuejs.org/",
        inventory: 0,
        onSale: true,
@@ -12,12 +12,12 @@ var app = new Vue({
            {
                id: 25,
                color: 'brown',
-               image:"./brownBoots.jpeg"
+               image:"./assets/brownBoots.jpeg"
             },
            {
                id: 38,
                color: "black",
-               image:"./blackBoots.jpeg"
+               image:"./assets/blackBoots.jpeg"
            }
        ],
        sizes:["UK size 40", "UK size 38", "US size 10", "US size 11"],
